@@ -37,7 +37,8 @@ jobs:
       - name: workspace select     
         run: terraform workspace select qa 
           
-      - name: plan, apply    
+      - name: plan, apply
+        run: |
           terraform validate -no-color
           terraform workspace list
           terraform plan -no-color
