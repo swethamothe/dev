@@ -30,7 +30,9 @@ jobs:
 
       - name: if qa, terraform init, validate, plan, apply
         #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform init
+        run: |
+          terraform init
+          terraform workspace list
         env:
           TF_WORKSPACE: "ppb-qa"
           
