@@ -28,15 +28,25 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
           
-      - name: if dev, terraform init, validate, plan, apply
-        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+      - name: Terraform init, validate, plan, apply
+        #if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: |
           terraform init
           terraform validate -no-color
           terraform plan -no-color
           terraform apply -auto-approve
+          
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'  
         env:
           TF_WORKSPACE: "ppb-dev"
+            
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'  
+        env:
+          TF_WORKSPACE: "ppb-prod"  
+          
+        if: github.ref == 'refs/heads/qa' && github.event_name == 'push'  
+        env:
+          TF_WORKSPACE: "ppb-qa"  
           
       - name: if qa, terraform init, validate, plan, apply
         if: github.ref == 'refs/heads/qa' && github.event_name == 'push'
