@@ -34,10 +34,10 @@ jobs:
         env:
           TF_WORKSPACE: "ppb-qa"
           
-      - name: workspace select     
-        run: |
-          terraform workspace list
-          terraform workspace select ppb-qa 
+     # - name: workspace select     
+      #  run: |
+       #   terraform workspace list
+        #  terraform workspace select ppb-qa 
           
       - name: plan, apply
         run: |
