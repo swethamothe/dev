@@ -33,6 +33,8 @@ jobs:
         run: |
           terraform init
           terraform workspace list
+          terraform validate
+          terraform workspace list
           terraform plan
           terraform apply
         env:
