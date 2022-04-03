@@ -4,7 +4,7 @@ terraform {
       source = "hashicorp/aws"
     }
   }
-  backend "remote" {
+  cloud {
     organization = "tafzs"
     workspaces {
       tags = ["ppb"] 
