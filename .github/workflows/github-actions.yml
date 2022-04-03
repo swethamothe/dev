@@ -45,8 +45,8 @@ jobs:
           terraform workspace list
           terraform plan -no-color
           terraform apply -auto-approve
-        #env:
-         # TYRELL_ENVIRONMENT: "qa"
+        env:
+          TF_WORKSPACE: "ppb-qa"
 
       - name: if dev, terraform init, validate, plan, apply
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
