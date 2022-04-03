@@ -39,9 +39,13 @@ jobs:
        #   terraform workspace list
         #  terraform workspace select ppb-qa 
           
-      - name: plan, apply
+      - name: validate
         run: |
           terraform validate -no-color
+          terraform workspace list
+          
+      - name: plan, apply
+        run: |   
           terraform workspace list
           terraform plan -no-color
           terraform apply -auto-approve
