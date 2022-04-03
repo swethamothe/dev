@@ -7,7 +7,7 @@ terraform {
   backend "remote" {
     organization = "tafzs"
     workspaces {
-      prefix = "ppb-"  
+      tags = ["ppb"] 
     }
   }
 }
