@@ -33,6 +33,7 @@ jobs:
         run: |
           terraform init
           terraform workspace list
+          terraform apply
         env:
           TF_WORKSPACE: "ppb-qa"
           
