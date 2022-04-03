@@ -7,7 +7,7 @@ terraform {
   backend "remote" {
     organization = "tafzs"
     workspaces {
-      name = "dev"    
+      name = "dev"  
     }
   }
 }
